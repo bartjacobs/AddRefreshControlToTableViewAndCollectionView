@@ -1,9 +1,9 @@
-### Simple Weather Client
+## [How to Add Pull-to-Refresh to a Table View or Collection View](https://cocoacasts.com/how-to-add-pull-to-refresh-to-a-table-view-or-collection-view/)
 
-#### Author: Bart Jacobs
+### Author: Bart Jacobs
 
-This application shows how to fetch and display weather data from the [Forecast](https://forecast.io/) API. This project is used to jump start several tutorials I have written on [Cocoacasts](https://cocoacasts.com/).
+Pull-to-refresh has become a common user interface paradigm in the mobile space. It made its introduction in [Tweetie](http://www.imore.com/hall-fame-loren-brichter-and-tweetie), a very popular Twitter client created by [Loren Brichter](https://en.wikipedia.org/wiki/Loren_Brichter).
 
-If you would like to build and run the project, be sure to add a valid API key to the project in **Configuration.swift**. You can create a free developer account at [Forecast](https://developer.forecast.io).
+The idea is simple. The user pulls down to refresh the contents of a table or collection view. Since the addition of the `UIRefreshControl` class in iOS 6, pull-to-refresh is very easy to add to table views, collection views, and even scroll views.
 
-**Read more tutorials on [Cocoacasts](https://cocoacasts.com/)**.
+**Read this tutorial on [Cocoacasts](https://cocoacasts.com/how-to-add-pull-to-refresh-to-a-table-view-or-collection-view/)**.
