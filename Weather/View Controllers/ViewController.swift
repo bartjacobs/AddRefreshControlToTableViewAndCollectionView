@@ -28,6 +28,8 @@ class ViewController: UIViewController {
         return dateFormatter
     }()
 
+    private let refreshControl = UIRefreshControl()
+
     // MARK: - View Life Cycle
 
     override func viewDidLoad() {
@@ -60,6 +62,16 @@ class ViewController: UIViewController {
 
     private func setupTableView() {
         tableView.isHidden = true
+
+        // Add Refresh Control to Table View
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
     }
 
     private func setupMessageLabel() {
@@ -69,6 +81,13 @@ class ViewController: UIViewController {
 
     private func setupActivityIndicatorView() {
         activityIndicatorView.startAnimating()
+    }
+
+    // MARK: - Actions
+
+    @objc private func refreshWeatherData(_ sender: Any) {
+        // Fetch Weather Data
+        fetchWeatherData()
     }
 
     // MARK: - Helper Methods
@@ -81,6 +100,7 @@ class ViewController: UIViewController {
                 }
 
                 self.updateView()
+                self.refreshControl.endRefreshing()
                 self.activityIndicatorView.stopAnimating()
             }
         }
